@@ -1,30 +1,30 @@
 kind: project
-spec:
-  source: git://github.com/elbamit/remote-workflow-example.git
-  load_source_on_run: true
-  desired_state: online
-  conda: ''
-  functions:
-  - url: func.py
-    name: func-a
-    kind: job
-    image: artifactory.iguazeng.com:10557/amite/mlrun/mlrun:ig4-auth5
-    handler: func_A
-  - url: func.py
-    name: func-b
-    kind: job
-    image: artifactory.iguazeng.com:10557/amite/mlrun/mlrun:ig4-auth5
-    handler: func_B
-  - url: func.py
-    name: func-c
-    kind: job
-    image: artifactory.iguazeng.com:10557/amite/mlrun/mlrun:ig4-auth5
-    handler: func_C
-  workflows:
-  - path: workflow.py
-    name: workflow-func
 status:
   state: online
 metadata:
   name: remote-workflow
   created: '2026-01-01T16:06:06.377000'
+spec:
+  functions:
+  - url: func.py
+    name: func-a
+    kind: job
+    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth6
+    handler: func_A
+  - url: func.py
+    name: func-b
+    kind: job
+    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth6
+    handler: func_B
+  - url: func.py
+    name: func-c
+    kind: job
+    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth6
+    handler: func_C
+  desired_state: online
+  source: git://github.com/elbamit/remote-workflow-example.git
+  workflows:
+  - path: workflow.py
+    name: workflow-func
+  conda: ''
+  load_source_on_run: true
