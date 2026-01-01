@@ -1,0 +1,30 @@
+metadata:
+  created: '2026-01-01T16:06:06.377000'
+  name: remote-workflow
+spec:
+  source: git://github.com/elbamit/remote-workflow-example.git
+  desired_state: online
+  load_source_on_run: true
+  conda: ''
+  workflows:
+  - path: workflow.py
+    name: workflow-func
+  functions:
+  - url: func.py
+    name: func-a
+    kind: job
+    image: mlrun/mlrun
+    handler: func_A
+  - url: func.py
+    name: func-b
+    kind: job
+    image: mlrun/mlrun
+    handler: func_B
+  - url: func.py
+    name: func-c
+    kind: job
+    image: mlrun/mlrun
+    handler: func_C
+status:
+  state: online
+kind: project
