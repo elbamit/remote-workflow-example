@@ -1,5 +1,4 @@
 from kfp import dsl
-from mlrun.platforms import auto_mount
 import os
 import sys
 import mlrun
