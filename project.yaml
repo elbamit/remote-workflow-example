@@ -1,31 +1,31 @@
 status:
   state: online
 spec:
+  load_source_on_run: true
+  conda: ''
+  source: git://github.com/elbamit/remote-workflow-example.git
+  default_image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc102
   functions:
   - url: func.py
     name: func-a
     kind: job
-    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc101
+    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc102
     handler: func_A
   - url: func.py
     name: func-b
     kind: job
-    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc101
+    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc102
     handler: func_B
   - url: func.py
     name: func-c
     kind: job
-    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc101
+    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc102
     handler: func_C
-  source: git://github.com/elbamit/remote-workflow-example.git
-  load_source_on_run: true
-  conda: ''
-  default_image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc101
-  desired_state: online
   workflows:
-  - name: workflow-func
+  - image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc102
+    name: workflow-func
     path: workflow.py
-    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun/mlrun-kfp:1.11.0-rc101
+  desired_state: online
 metadata:
   name: remote-workflow
   created: '2026-01-01T16:06:06.377000'
