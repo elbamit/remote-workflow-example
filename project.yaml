@@ -1,32 +1,32 @@
-status:
-  state: online
 metadata:
-  name: remote-workflow
   created: '2026-01-01T16:06:06.377000'
-kind: project
+  name: remote-workflow
 spec:
-  desired_state: online
-  load_source_on_run: true
-  workflows:
-  - image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc99
-    path: workflow.py
-    name: workflow-func
-  default_image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc99
   functions:
   - url: func.py
     name: func-a
     kind: job
-    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc99
+    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc101
     handler: func_A
   - url: func.py
     name: func-b
     kind: job
-    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc99
+    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc101
     handler: func_B
   - url: func.py
     name: func-c
     kind: job
-    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc99
+    image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc101
     handler: func_C
+  default_image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc101
+  workflows:
+  - image: artifactory.iguazeng.com:10557/amitelbaz630/mlrun-kfp:1.11.0-rc101
+    name: workflow-func
+    path: workflow.py
   conda: ''
   source: git://github.com/elbamit/remote-workflow-example.git
+  desired_state: online
+  load_source_on_run: true
+kind: project
+status:
+  state: online
