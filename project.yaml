@@ -1,32 +1,32 @@
 status:
   state: online
+kind: project
 spec:
+  default_image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth8
+  load_source_on_run: true
+  desired_state: online
+  source: git://github.com/elbamit/remote-workflow-example.git
   functions:
   - url: func.py
     name: func-a
     kind: job
-    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth7
+    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth8
     handler: func_A
   - url: func.py
     name: func-b
     kind: job
-    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth7
+    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth8
     handler: func_B
   - url: func.py
     name: func-c
     kind: job
-    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth7
+    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth8
     handler: func_C
-  source: git://github.com/elbamit/remote-workflow-example.git
-  load_source_on_run: true
   conda: ''
-  desired_state: online
   workflows:
   - path: workflow.py
+    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth8
     name: workflow-func
-    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth7
-  default_image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth7
-kind: project
 metadata:
   name: remote-workflow
   created: '2026-01-01T16:06:06.377000'
