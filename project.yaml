@@ -4,25 +4,25 @@ spec:
   load_source_on_run: true
   conda: ''
   source: git://github.com/elbamit/remote-workflow-example.git
-  default_image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth
+  default_image: mlrun/mlrun
   functions:
   - url: func.py
     name: func-a
     kind: job
-    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth
+    image: mlrun/mlrun
     handler: func_A
   - url: func.py
     name: func-b
     kind: job
-    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth
+    image: mlrun/mlrun
     handler: func_B
   - url: func.py
     name: func-c
     kind: job
-    image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth
+    image: mlrun/mlrun
     handler: func_C
   workflows:
-  - image: dev-snapshot.artifactory.iguazeng.com/amite/mlrun/mlrun:ig4-auth
+  - image: mlrun/mlrun
     name: workflow-func
     path: workflow.py
   desired_state: online
