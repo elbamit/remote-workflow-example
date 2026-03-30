@@ -7,7 +7,7 @@ import mlrun
 def kfpipeline(input_val):
     project = mlrun.get_current_project()
 
-    dsl.get_pipeline_conf().set_timeout(1)
+    dsl.get_pipeline_conf().set_timeout(5)
 
     # Run first function with the input value given to the workflow
     step_1 = mlrun.run_function('func-A', params={"input_value":str(input_val)}, returns=['first_func_res'])    
