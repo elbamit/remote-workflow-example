@@ -6,7 +6,9 @@ import mlrun
 @dsl.pipeline(name="Condition pipeline", description="Pipeline that runs a function based on the result of a previous function")
 def kfpipeline(input_val):
     project = mlrun.get_current_project()
-    
+
+    dsl.get_pipeline_conf().set_timeout(1)
+
     # Run first function with the input value given to the workflow
     step_1 = mlrun.run_function('func-A', params={"input_value":str(input_val)}, returns=['first_func_res'])    
     step_2 = mlrun.run_function('func-B', returns=['second_func_res']).after(step_1)
